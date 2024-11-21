@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question-Answering Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    <h1>Natural Language Question-Answering</h1>
+    <br>
+    <form action="/answer" method="POST" >
+        
+        <br>
+        <div class="wrapper">
+        <label for="context">Context:&nbsp;</label>
+
+        <textarea id="context" name="context" rows="55" cols="50" spellcheck="false" placeholder="Type something here..." required></textarea>
+   
+        <br><br><br>
+        <label for="question">Question:</label>
+        <textarea id="question" name="question" rows="3" cols="49" spellcheck="false" placeholder="Type something here..." required></textarea>
+        <br> </div>
+        <input class="button" type="submit" value="Submit">
+    </form>
+    <!-- <script>
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e =>{
+          textarea.style.height = "63px";
+          let scHeight = e.target.scrollHeight;
+          textarea.style.height = `${scHeight}px`;
+        });
+      </script> -->
+  <h1 class="a1" style=" position: fixed;
+  right: 7%;
+  top: 0%;"> Answer :</h1>
+  <div class="answer" ></div>
+         {% if question and context and answer %}
+         <h3>Question: {{ question }}</h3>
+         <!-- <h3>Context: {{ context }}</h3> -->
+         <h3>Answer: {{ answer }}</h3>
+         {% endif %}
+        </div>
+</body>
+</html>
